@@ -1,4 +1,4 @@
-import connection from "./connections";
+import connection from "../connections"
 
 
 
