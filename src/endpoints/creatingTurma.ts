@@ -1,7 +1,7 @@
 import {Request , Response } from "express";
 import { TurmaClasse } from "../classes";
 import { BaseDataBase } from "../connections";
-import { CreatingStudentDB, CreatingTurma } from "../data";
+import {  CreatingTurma, SearchingTurmaAtivaDB } from "../data";
 import { MODULO } from "../types";
 
 
@@ -20,12 +20,12 @@ import { MODULO } from "../types";
 // }
 
 
-    export const creatingStudents = async (req:Request , res:Response )
-    : Promise<any> =>  { 
-      const estudantes = new CreatingStudentDB()
-      const result = await estudantes.creatingStudent()
-      res.status(200).send(result)
-    }
+//     export const creatingStudents = async (req:Request , res:Response )
+//     : Promise<any> =>  { 
+//       const estudantes = new CreatingStudentDB()
+//       const result = await estudantes.creatingStudent()
+//       res.status(200).send(result)
+//     }
 
 
   //  Criando Turma 
@@ -42,3 +42,6 @@ import { MODULO } from "../types";
             res.status(400).send(error.sqlMessage || error.message)
       }
     }
+
+
+  

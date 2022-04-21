@@ -1,4 +1,6 @@
+import { TurmaClasse } from "./classes";
 import { BaseDataBase } from "./connections";
+import { MODULO } from "./types";
 
 
 
@@ -13,24 +15,25 @@ import { BaseDataBase } from "./connections";
 // }
 
 
-export class CreatingStudentDB extends BaseDataBase {  
+// export class CreatingStudentDB extends BaseDataBase {  
       
-    public async creatingStudent(){
-     try { 
-       return await this.connection("Actor")
-     }catch(error: any) { 
-        throw new Error( error.sqlMessage || error.message)
-     }
-    }
+//     public async creatingStudent(){
+//      try { 
+//        return await this.connection("Actor")
+//      }catch(error: any) { 
+//         throw new Error( error.sqlMessage || error.message)
+//      }
+//     }
 
-} 
+// } 
+
 
 
 
 
 export class CreatingTurma extends BaseDataBase {  
       
-    public async creatingTurma(turma: any){
+    public async creatingTurma(turma: TurmaClasse){
      try { 
        return await this.connection("TURMA").insert(turma)
      }catch(error: any) { 
@@ -38,3 +41,37 @@ export class CreatingTurma extends BaseDataBase {
      }
     }
 }  
+
+export class SearchingTurmaAtivaDB extends BaseDataBase{ 
+
+    public async SearchingTurmaAtivaDBMeth(){ 
+    try {
+        return this.connection("TURMA").where("modulo", ">", 0 )
+    } catch (error: any) {
+         throw new Error( error.sqlMessage || error.message)
+    }
+    }
+
+}
+export class SearchingTurmaAInvalidasDB extends BaseDataBase{ 
+    public async SearchingTurmaAInvalidasDB(){ 
+    try {
+        return this.connection("TURMA").where("modulo", "=", 0 )
+    } catch (error: any) {
+         throw new Error( error.sqlMessage || error.message)
+    }
+    }
+}
+
+
+export class ChangeClassModuloDb extends BaseDataBase { 
+    public async changeClassModuleDB(turmaId : string , modulo: MODULO) { 
+        try {
+            return this.connection("TURMA")
+                .where("id", "=" , turmaId)
+                .update("modulo", modulo)
+        } catch (error: any) {
+            
+        }
+    }
+}

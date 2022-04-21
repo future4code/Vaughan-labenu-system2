@@ -11,10 +11,22 @@ export class TurmaClasse {
          private nome: string, 
     ) {}
         setModulo(novoModulo: MODULO){ 
-            this.modulo =novoModulo;
+            this.modulo = novoModulo;
+        }
+        getModulo(): MODULO{ 
+           return this.modulo;
+        }
+        getId(){ 
+           return this.id;
+        }
+        getName(){ 
+           return this.nome;
         }
         
+        
 }
+
+
 
 
 // const turma1 = new TurmaClasse("turma_varughan", 
@@ -87,5 +99,4 @@ export const Estudante1 = new Estudante(
 "ronald@ronald.com" , 
 "10/02/1990",
 "turma01", 
-["nadar", "futebol"   , "joga tennis"]
-    )
+["nadar", "futebol"   , "joga tennis"])
