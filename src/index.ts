@@ -1,10 +1,10 @@
 import app from "./app"
 import { Docente1, Estudante1  } from "./classes"
-import { creatingStudent } from "./endpoints/creatingStudent"
+import {  creatingStudents, creatingTurma } from "./endpoints/creating"
 
 
 
-app.post("/students", creatingStudent)
+app.get("/students", creatingStudents  )
 
 
 
@@ -12,4 +12,10 @@ app.post("/students", creatingStudent)
 
 
     // console.log(Estudante1.turma_id = "1" )  
-    // console.log(Estudante1 )  
+    // console.log(Estudante1.setHobbys(["correr"]))  
+    // console.log(Estudante1)  
+
+
+app.post("/turmas" , creatingTurma)
+
+ 
