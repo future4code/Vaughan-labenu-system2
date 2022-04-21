@@ -2,7 +2,7 @@ import app from "./app"
 import { Docente1, Estudante1  } from "./classes"
 import { changeModule } from "./endpoints/changingModule"
 import { creatingTurma} from "./endpoints/creatingTurma"
-import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searching"
+import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searchingTurmas"
 
 
 

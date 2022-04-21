@@ -1,8 +1,4 @@
-
 import { ESPECIALIDADES, MODULO } from "./types";
-
-
-
 
 export class TurmaClasse {
     private modulo = MODULO.modulo0;
@@ -27,14 +23,6 @@ export class TurmaClasse {
 }
 
 
-
-
-// const turma1 = new TurmaClasse("turma_varughan", 
-// "ronald@ronald.com" , 
-// "10/02/1990",
-// "turma01")
-
-// console.log(turma1)
 
 abstract class Usuario {    
 

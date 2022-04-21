@@ -1,35 +1,20 @@
-import { TurmaClasse } from "./classes";
+import { Estudante, TurmaClasse } from "./classes";
 import { BaseDataBase } from "./connections";
 import { MODULO } from "./types";
 
 
-
-// export const  dBCreatingStudent =async(id:string, nome: string, email:string, data_nasc: string, turma_id:string )
-// : Promise<void>  => { 
-
-//      const result = 
-//                 await connection("ESTUDANTE")
-//                 .insert(
-//                     {id, nome, email, data_nasc, turma_id}
-//                     ) 
-// }
-
-
-// export class CreatingStudentDB extends BaseDataBase {  
-      
-//     public async creatingStudent(){
-//      try { 
-//        return await this.connection("Actor")
-//      }catch(error: any) { 
-//         throw new Error( error.sqlMessage || error.message)
-//      }
-//     }
-
-// } 
-
-
-
-
+export class CreatingStundetDB  extends BaseDataBase { 
+     // Lembrar de usar algum tipo de intercao para tabela Estudante_hobby  olhar a .md de hobbies
+    public async creatingStundentMeth  
+      (id: string, nome: string, email: string, data_nasc:string, turma_id : string) { 
+        try { 
+            await this.connection("ESTUDANTE")
+            .insert({id, nome, email, data_nasc, turma_id})
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)  
+        }
+    }
+}
 
 export class CreatingTurma extends BaseDataBase {  
       
