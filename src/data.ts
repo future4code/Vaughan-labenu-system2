@@ -1,13 +1,77 @@
-import connection from "./connections";
+import { TurmaClasse } from "./classes";
+import { BaseDataBase } from "./connections";
+import { MODULO } from "./types";
 
 
 
-export const  dBCreatingStudent =async(id:string, nome: string, email:string, data_nasc: string, turma_id:string )
-: Promise<void>  => { 
+// export const  dBCreatingStudent =async(id:string, nome: string, email:string, data_nasc: string, turma_id:string )
+// : Promise<void>  => { 
 
-     const result = 
-                await connection("ESTUDANTE")
-                .insert(
-                    {id, nome, email, data_nasc, turma_id}
-                    ) 
+//      const result = 
+//                 await connection("ESTUDANTE")
+//                 .insert(
+//                     {id, nome, email, data_nasc, turma_id}
+//                     ) 
+// }
+
+
+// export class CreatingStudentDB extends BaseDataBase {  
+      
+//     public async creatingStudent(){
+//      try { 
+//        return await this.connection("Actor")
+//      }catch(error: any) { 
+//         throw new Error( error.sqlMessage || error.message)
+//      }
+//     }
+
+// } 
+
+
+
+
+
+export class CreatingTurma extends BaseDataBase {  
+      
+    public async creatingTurma(turma: TurmaClasse){
+     try { 
+       return await this.connection("TURMA").insert(turma)
+     }catch(error: any) { 
+        throw new Error( error.sqlMessage || error.message)
+     }
+    }
+}  
+
+export class SearchingTurmaAtivaDB extends BaseDataBase{ 
+
+    public async SearchingTurmaAtivaDBMeth(){ 
+    try {
+        return this.connection("TURMA").where("modulo", ">", 0 )
+    } catch (error: any) {
+         throw new Error( error.sqlMessage || error.message)
+    }
+    }
+
+}
+export class SearchingTurmaAInvalidasDB extends BaseDataBase{ 
+    public async SearchingTurmaAInvalidasDB(){ 
+    try {
+        return this.connection("TURMA").where("modulo", "=", 0 )
+    } catch (error: any) {
+         throw new Error( error.sqlMessage || error.message)
+    }
+    }
+}
+
+
+export class ChangeClassModuloDb extends BaseDataBase { 
+    public async changeClassModuleDB(turmaId : string , modulo: MODULO) { 
+        try {
+            return this.connection("TURMA")
+                .where("id", "=" , turmaId)
+                .update("modulo", modulo)
+        } catch (error: any) {
+            
+        }
+    }
 }

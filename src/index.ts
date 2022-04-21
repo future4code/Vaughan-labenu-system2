@@ -1,15 +1,22 @@
 import app from "./app"
 import { Docente1, Estudante1  } from "./classes"
-import { creatingStudent } from "./endpoints/creatingStudent"
+import { changeModule } from "./endpoints/changingModule"
+import { creatingTurma} from "./endpoints/creatingTurma"
+import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searching"
 
 
 
-app.post("/students", creatingStudent)
+app.post("/turmas" , creatingTurma)
+
+
+app.get("/turmas/validas" ,  SearchingTurmaAtiva) 
+
+
+app.get("/turmas/invalidas" ,  SearchingTurmaInativas) 
 
 
 
-    // console.log(Docente1)  
+app.put("/turmas" ,  changeModule) 
+ 
 
 
-    // console.log(Estudante1.turma_id = "1" )  
-    // console.log(Estudante1 )  

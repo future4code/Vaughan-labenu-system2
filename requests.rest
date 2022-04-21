@@ -1,0 +1,50 @@
+POST http://localhost:3003/students HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "nome": "Jose da Silva", 
+    "email": "jose@gmail.com",
+    "dataNasc":"01/01/1990",
+    "turmaId" :"Vaighaun"
+}
+
+
+### 
+
+GET http://localhost:3003/students HTTP/1.1
+Content-Type: application/json
+
+
+### 
+// Criando turmas 
+Post http://localhost:3003/turmas HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "nome": "Futuro"
+}
+
+### 
+# turma modulos > 0 
+GET http://localhost:3003/turmas/validas HTTP/1.1
+Content-Type: application/json
+
+
+
+### 
+
+// Turmas  modulo = 0 
+GET http://localhost:3003/turmas/invalidas HTTP/1.1
+Content-Type: application/json
+
+
+###
+
+PUT http://localhost:3003/turmas HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "turmaId": "0.31302916523901625", 
+    "nome": "Moreira" ,
+    "modulo": "2"
+}

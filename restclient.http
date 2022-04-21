@@ -1,9 +1,0 @@
-POST http://localhost:3003/students HTTP/1.1
-Content-Type: application/json
-
-{ 
-    "nome": "Jose da Silva", 
-    "email": "jose@gmail.com",
-    "dataNasc":"01/01/1990",
-    "turmaId" :"Vaighaun"
-}

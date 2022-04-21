@@ -1,67 +1,84 @@
-import { ESPECIALIDADES } from "./types";
+
+import { ESPECIALIDADES, MODULO } from "./types";
 
 
 
 
-class Turma {
-    public modulo = 0;
+export class TurmaClasse {
+    private modulo = MODULO.modulo0;
     constructor(
-         public id: string, 
-         public nome: string, 
-         public docentes: string, 
-         public estudantes: string, 
-    ) {
+         private id: string, 
+         private nome: string, 
+    ) {}
+        setModulo(novoModulo: MODULO){ 
+            this.modulo = novoModulo;
+        }
+        getModulo(): MODULO{ 
+           return this.modulo;
+        }
+        getId(){ 
+           return this.id;
+        }
+        getName(){ 
+           return this.nome;
+        }
         
-    }
+        
 }
 
 
-const turma1 = new Turma("turma_varughan", 
-"ronald@ronald.com" , 
-"10/02/1990",
-"turma01")
 
-console.log(turma1)
+
+// const turma1 = new TurmaClasse("turma_varughan", 
+// "ronald@ronald.com" , 
+// "10/02/1990",
+// "turma01")
+
+// console.log(turma1)
 
 abstract class Usuario {    
-    constructor(
-        public id: string,
-        public nome: string,
-        public email: string,
-        public data_nasc: string,
-        public turma_id: string        
-    ){
 
-    }
+    constructor(
+        private id: string,
+        private nome: string,
+        private email: string,
+        private data_nasc: string,
+        private turma_id: string        
+    ){}
 }
 
 export class Estudante extends Usuario{
+
     constructor(
-        public id: string,
-        public nome: string,
-        public email: string,
-        public data_nasc: string,
-        public turma_id: string,
-        public hobbys: string[]          
+         id: string,
+         nome: string,
+         email: string,
+         data_nasc: string,
+         turma_id: string,
+        private hobbys: string[]          
     ){
         super(id, nome, email, data_nasc, turma_id);
     }
+     setHobbys(novoHobbyes: string[] ){ 
+          this.hobbys.push(...novoHobbyes)
+     }
 } 
 
 
  export class Docente extends Usuario   {
     constructor(
-        public id: string,
-        public nome: string,
-        public email: string,
-        public data_nasc: string,
-        public turma_id: string,
-        public especialidades: ESPECIALIDADES[]           
+         id: string,
+         nome: string,
+         email: string,
+         data_nasc: string,
+         turma_id: string,
+         private especialidades: ESPECIALIDADES[]           
     ){
         super(id, nome, email, data_nasc, turma_id);
     }  
-      
-    
+    setEspecialidades(especialidades: ESPECIALIDADES[] ){ 
+        this.especialidades = especialidades
+   }   
 }
 
 
@@ -73,15 +90,13 @@ export const Docente1 = new Docente("001",
 "turma01", 
 [ESPECIALIDADES.JS]
       )
-    console.log(Docente1)  
+    // console.log(Docente1)  
 
 
-    export const Estudante1 = new Estudante( 
-        "001", 
+export const Estudante1 = new Estudante( 
+"001", 
 "Jardel", 
 "ronald@ronald.com" , 
 "10/02/1990",
 "turma01", 
-["nadar",  "joga tennis"]
-
-    )
+["nadar", "futebol"   , "joga tennis"])
