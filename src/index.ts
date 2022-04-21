@@ -8,13 +8,6 @@ app.get("/students", creatingStudents  )
 
 
 
-    // console.log(Docente1)  
-
-
-    // console.log(Estudante1.turma_id = "1" )  
-    // console.log(Estudante1.setHobbys(["correr"]))  
-    // console.log(Estudante1)  
-
 
 app.post("/turmas" , creatingTurma)
 
