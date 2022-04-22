@@ -1,8 +1,4 @@
-
 import { ESPECIALIDADES, MODULO } from "./types";
-
-
-
 
 export class TurmaClasse {
     private modulo = MODULO.modulo0;
@@ -28,14 +24,6 @@ export class TurmaClasse {
 
 
 
-
-// const turma1 = new TurmaClasse("turma_varughan", 
-// "ronald@ronald.com" , 
-// "10/02/1990",
-// "turma01")
-
-// console.log(turma1)
-
 abstract class Usuario {    
 
     constructor(
@@ -45,6 +33,12 @@ abstract class Usuario {
         private data_nasc: string,
         private turma_id: string        
     ){}
+    public setTurma_id(novaTurma:string){
+        this.turma_id = novaTurma 
+     }
+    public getTurma_id(){
+        return this.turma_id
+     }
 }
 
 export class Estudante extends Usuario{
@@ -59,9 +53,23 @@ export class Estudante extends Usuario{
     ){
         super(id, nome, email, data_nasc, turma_id);
     }
-     setHobbys(novoHobbyes: string[] ){ 
+    public setHobbys(novoHobbyes: string[] ){ 
           this.hobbys.push(...novoHobbyes)
-     }
+    }
+} 
+export class EstudanteSemHobby extends Usuario{
+
+    constructor(
+         id: string,
+         nome: string,
+         email: string,
+         data_nasc: string,
+         turma_id: string,
+  
+    ){
+        super(id, nome, email, data_nasc, turma_id);
+    }
+
 } 
 
 
@@ -76,12 +84,13 @@ export class Estudante extends Usuario{
     ){
         super(id, nome, email, data_nasc, turma_id);
     }  
-    setEspecialidades(especialidades: ESPECIALIDADES[] ){ 
+    public setEspecialidades(especialidades: ESPECIALIDADES[] ){ 
         this.especialidades = especialidades
-   }   
+   }
+    public getEspecialidades(): ESPECIALIDADES[]{
+        return this.especialidades;
+    }
 }
-
-
 
 export const Docente1 = new Docente("001", 
 "Ronald", 

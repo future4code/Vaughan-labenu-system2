@@ -14,7 +14,7 @@ export const SearchingTurmaAtiva = async ( req: Request, res : Response) => {
 }
 
 
-// Turmas
+// Turmas "invalidas" onde modulo  = 0. 
 export const SearchingTurmaInativas = async ( req: Request, res : Response) => { 
     try { const SearchTurma = new SearchingTurmaAInvalidasDB()
           const result = await SearchTurma.SearchingTurmaAInvalidasDB()

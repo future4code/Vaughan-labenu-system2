@@ -15,3 +15,4 @@ export enum MODULO {
     modulo5 = "5",
     modulo6 = "6"
 }
+
