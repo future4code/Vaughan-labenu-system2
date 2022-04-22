@@ -31,7 +31,7 @@ export class SearchingTurmaAtivaDB extends BaseDataBase{
 
     public async SearchingTurmaAtivaDBMeth(){ 
     try {
-        return this.connection("TURMA").where("modulo", ">", 0 )
+        return await this.connection("TURMA").where("modulo", ">", 0 )
     } catch (error: any) {
          throw new Error( error.sqlMessage || error.message)
     }
@@ -41,7 +41,7 @@ export class SearchingTurmaAtivaDB extends BaseDataBase{
 export class SearchingTurmaAInvalidasDB extends BaseDataBase{ 
     public async SearchingTurmaAInvalidasDB(){ 
     try {
-        return this.connection("TURMA").where("modulo", "=", 0 )
+        return await this.connection("TURMA").where("modulo", "=", 0 )
     } catch (error: any) {
          throw new Error( error.sqlMessage || error.message)
     }
@@ -52,11 +52,28 @@ export class SearchingTurmaAInvalidasDB extends BaseDataBase{
 export class ChangeClassModuloDb extends BaseDataBase { 
     public async changeClassModuleDB(turmaId : string , modulo: MODULO) { 
         try {
-            return this.connection("TURMA")
+            return await this.connection("TURMA")
                 .where("id", "=" , turmaId)
                 .update("modulo", modulo)
         } catch (error: any) {
-            
+            throw new Error( error.sqlMessage || error.message)
         }
+    }
+}
+
+
+// criando 1 ESTUDANTE_HOBBY no banco de dados 
+
+export class CreatingEstudanteHobbyDB extends BaseDataBase { 
+    /**
+     * id, estudante_id, hobby_id
+     */
+    public async creatinghobby(id:string , estudante_id: string, hobby_id: string) {
+        try {
+             return await this.connection("ESTUDANTE_HOBBY")
+                    .insert({id, estudante_id, hobby_id })
+        } catch (error: any) {
+            throw new Error( error.sqlMessage || error.message)
+        } 
     }
 }

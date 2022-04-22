@@ -11,7 +11,6 @@ export const creatingStudents = async (req: Request , res :Response): Promise<vo
          const {nome, email, dataNasc, turmaID:turma_id ,hobbys }: 
             { nome:string, email:string, dataNasc : string, turmaID:string ,hobbys :string[] } = req.body
          const id = Math.random().toString();
-
          const data_nasc  = dataNasc.split("/").reverse().join("-") 
 
         const estudante = new Estudante(id, nome, email, data_nasc, turma_id ,hobbys )
