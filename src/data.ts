@@ -105,4 +105,15 @@ export class ReadingHobbiesDB extends BaseDataBase {
     }
 }
 
+export class InsertHobbiesDB extends BaseDataBase {
+    public async insertHobbiesMeth(hobby: any[]){
+        try {
+             
+            return await this.connection("HOBBY").insert(hobby)
+        } catch (error:any) {
+           throw new Error( error.sqlMessage || error.message)
+        }
+    }
+}
+
 
