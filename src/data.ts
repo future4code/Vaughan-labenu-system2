@@ -97,12 +97,36 @@ export class CreatingEstudanteHobbyDB extends BaseDataBase {
 export class ReadingHobbiesDB extends BaseDataBase {
     public async readingHobbiesMeth(){
         try {
-          //   return await this.connection(“HOBBY”).select()
             return await this.connection("HOBBY").select()
         } catch (error:any) {
            throw new Error( error.sqlMessage || error.message)
         }
     }
+}
+
+export class InserirHobbiesDB extends BaseDataBase {
+    public async InserirHobbiesDB(hobby:any[]){
+        try {
+            return await this.connection("HOBBY")
+            .insert(hobby)
+        } catch (error:any) {
+           throw new Error( error.sqlMessage || error.message)
+        }
+    }
+}
+
+
+
+export class InserirEstudantesHobbyDB extends BaseDataBase { 
+    public async InserirEstudantesHobbyDB(estudanteHobby:string[]){ 
+        try{ 
+            return await this.connection("ESTUDANTE_HOBBY")
+            .insert(estudanteHobby)
+        } catch (error:any) {
+            throw new Error( error.sqlMessage || error.message)
+         }
+    }
+
 }
 
 
