@@ -5,11 +5,13 @@ POST http://localhost:3003/estudante HTTP/1.1
 Content-Type: application/json
 
   { 
-  "nome": "Felipeaaaa", 
-   "email": "alyty@gmail",
+
+  "nome": "Ditertertreno da Silva  Sauro",       
+   "email": "Dintrereto@gmail.com",
     "dataNasc":"01/01/1990",
-     "turmaId" :"0.7307680660277247",
-    "hobbys": ["Natacao", "Bicicleta", "Parkour"]
+     "turmaId" :"0.302643476637366",
+    "hobbys": ["ler" , "patins" , "olhar" , "mar"]
+
    }
 
 
