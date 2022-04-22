@@ -12,22 +12,14 @@ export const creatingStudents = async (req: Request , res :Response): Promise<vo
         const selectHobbys = new ReadingHobbiesDB()
         const test = await selectHobbys.readingHobbiesMeth()
 
-        const diversao = ["patins"]
+        const diversao = ["patins" , "ler", "trem"]
 
         const mappedTest = test.map((item) => {return item.nome.trim().toLowerCase()})
-
-        const x = mappedTest.filter((hobby) => {
-           diversao.forEach((item) => { console.log("hobby:", hobby, "item:", item)
-                if (hobby === item) { console.log("hobby dentro do if:", hobby, "item:", item)
-                    return true
-                } else {
-                    return false
-                }
-            }) 
-        })
+                .filter((hobby) =>  diversao.find((item) => item === hobby ))
+ 
 
         console.log(mappedTest)
-        console.log("Esse é o x:", x)
+
 
          const {nome, email, dataNasc, turmaId:turma_id ,hobbys }: 
             { nome:string, email:string, dataNasc : string, turmaId:string ,hobbys :string[] } = req.body
