@@ -94,4 +94,15 @@ export class CreatingEstudanteHobbyDB extends BaseDataBase {
     }
 }
 
+export class ReadingHobbiesDB extends BaseDataBase {
+    public async readingHobbiesMeth(){
+        try {
+          //   return await this.connection(“HOBBY”).select()
+            return await this.connection("HOBBY").select()
+        } catch (error:any) {
+           throw new Error( error.sqlMessage || error.message)
+        }
+    }
+}
+
 
