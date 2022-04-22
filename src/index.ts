@@ -1,11 +1,14 @@
 import app from "./app"
 import { changeModule } from "./endpoints/changingModule"
 import { creatingEstHobby } from "./endpoints/creatingEstHobby"
+import { creatingStudents } from "./endpoints/creatingStudents"
 import { creatingTurma} from "./endpoints/creatingTurma"
 import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searchingTurmas"
 
 
 
+
+app.post("/estudante" , creatingStudents)
 
 app.post("/turmas" , creatingTurma)
 

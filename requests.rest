@@ -1,15 +1,24 @@
-POST http://localhost:3003/students HTTP/1.1
+
+
+
+POST http://localhost:3003/estudante HTTP/1.1
 Content-Type: application/json
 
-{ 
-    "nome": "Jose da Silva", 
-    "email": "jose@gmail.com",
+  { 
+  "nome": "Dino da Silva  Sauro", 
+   "email": "Dino@gmail.com",
     "dataNasc":"01/01/1990",
-    "turmaId" :"Vaighaun"
-}
+     "turmaId" :"0.4786352600742101"
+   }
 
 
-### 
+# { 
+#     "nome": "Gabriel Martins", 
+#     "email": "gabriel@gmail.com",
+#     "dataNasc":"13/04/1983",
+#     "turmaId" :"0.31302916523901625"
+# }
+###
 
 GET http://localhost:3003/students HTTP/1.1
 Content-Type: application/json

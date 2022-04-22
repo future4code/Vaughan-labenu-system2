@@ -10,9 +10,10 @@ export const creatingEstHobby = async (req : Request, res: Response): Promise<vo
 
     const CreatingEstudanteHobby = new CreatingEstudanteHobbyDB();
         console.log(id , estudante_id , hobby_id )
-        await CreatingEstudanteHobby.creatinghobby(id , estudante_id , hobby_id )
+        await CreatingEstudanteHobby
+            .creatinghobby(id , estudante_id , hobby_id )
     }  catch(error: any){ 
-        res.status(400).send( error.sqlMessage || error.message)
+            res.status(400).send( error.sqlMessage || error.message)
     }
 }
 

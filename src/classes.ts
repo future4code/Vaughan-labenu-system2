@@ -57,6 +57,20 @@ export class Estudante extends Usuario{
           this.hobbys.push(...novoHobbyes)
     }
 } 
+export class EstudanteSemHobby extends Usuario{
+
+    constructor(
+         id: string,
+         nome: string,
+         email: string,
+         data_nasc: string,
+         turma_id: string,
+  
+    ){
+        super(id, nome, email, data_nasc, turma_id);
+    }
+
+} 
 
 
  export class Docente extends Usuario   {
