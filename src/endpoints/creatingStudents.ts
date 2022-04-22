@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Estudante, EstudanteSemHobby } from "../classes";
 
-import { CreatingStundetDB, InserirHobbiesDB, ReadingHobbiesDB } from "../data";
+import { CreatingStundetDB, InsertHobbiesDB, ReadingHobbiesDB } from "../data";
 
 
 
@@ -16,12 +16,15 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
 
         // const diversao = ["patins" , "ler", "trem" , "olhar"]
 
-        
-        const {nome, email, dataNasc, turmaId:turma_id ,hobbys }: 
-        { nome:string, email:string, dataNasc : string, turmaId:string ,hobbys :string[] } = req.body
-        const id = Math.random().toString();
-        const data_nasc  = dataNasc.split("/").reverse().join("-") 
-=======
+        // ------------------- TRECHO ACUSANDO CONFLITO QUE NÃO SAIU NO PR ↓
+
+        // const {nome, email, dataNasc, turmaId:turma_id ,hobbys }: 
+        // { nome:string, email:string, dataNasc : string, turmaId:string ,hobbys :string[] } = req.body
+        // const id = Math.random().toString();
+        // const data_nasc  = dataNasc.split("/").reverse().join("-") 
+
+        // ------------------- TRECHO ACUSANDO CONFLITO QUE NÃO SAIU NO PR ↑
+
 
 
 
@@ -43,7 +46,7 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
         console.log('mapHobbys', mapHobbys)
 
 
-        const mappedTest = test.map((item) => {return item.nome.trim().toLowerCase()})
+        const mappedTest = mapHobbys.map((item) => {return item.nome.trim().toLowerCase()})
                         
         const mappedHobbies = hobbys.filter(item => {if (mappedTest.indexOf(item) === -1 ){ return true }
         else return false  }) 
@@ -57,17 +60,14 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
             new EstudanteSemHobby(id, nome, email, data_nasc, turma_id )
             
             console.log("Creating students", estudanteSemHobby)
-            const InserirHobbieDB = new InserirHobbiesDB()
-            InserirHobbieDB.InserirHobbiesDB(hobbyNo)
+            const InserirHobbieDB = new InsertHobbiesDB
+            InserirHobbieDB.insertHobbiesMeth(hobbyNo)
 
         const CreatingStudentsDB = new CreatingStundetDB()
         CreatingStudentsDB.creatingStundentMeth(estudanteSemHobby)
-        res.status(201).send(estudanteSemHobby)
+        res.status(201).end()
     } catch (error: any) {
         res.status(400).send(error.sqlMessage | error.message)     
        
     }
 }
-
-
-
