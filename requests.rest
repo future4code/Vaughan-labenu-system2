@@ -8,7 +8,8 @@ Content-Type: application/json
   "nome": "Dino da Silva  Sauro", 
    "email": "Dino@gmail.com",
     "dataNasc":"01/01/1990",
-     "turmaId" :"0.4786352600742101"
+     "turmaId" :"0.302643476637366",
+    "hobbys": ["Natação"]
    }
 
 
