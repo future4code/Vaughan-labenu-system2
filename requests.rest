@@ -68,3 +68,14 @@ Content-Type: application/json
     "estudanteId": "0001_EstudanteId_teste" ,
     "hobbyId": "101_hobbyId_teste"
 }
+###
+POST http://localhost:3003/docente HTTP/1.1
+Content-Type: application/json
+
+  { 
+
+  "nome": "profe",       
+   "email": "profe@gmail.com",
+    "data_nasc":"1990-01-01",
+     "turma_id" :"0.302643476637366"
+   }
