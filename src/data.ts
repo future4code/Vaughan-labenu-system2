@@ -33,17 +33,6 @@ export class CreatingStundetDB extends BaseDataBase {
 }
 
 
-// export class CreatingEstudanteDB extends  BaseDataBase { 
-//     public async creatingEstudante(id : string, nome: string, email: string, data_nasc: Date, turma_id: string){
-//         try{ 
-//             return await this.connection("ESTUDANTE")
-//                            .insert()
-//         }
-//     }
-//   }
-
-
-
 
 export class CreatingTurma extends BaseDataBase {
 
@@ -76,8 +65,6 @@ export class SearchingTurmaAInvalidasDB extends BaseDataBase {
         }
     }
 }
-
-
 export class ChangeClassModuloDb extends BaseDataBase {
     public async changeClassModuleDB(turmaId: string, modulo: MODULO) {
         try {
@@ -89,7 +76,6 @@ export class ChangeClassModuloDb extends BaseDataBase {
         }
     }
 }
-
 // criando 1 ESTUDANTE_HOBBY no banco de dados 
 export class CreatingEstudanteHobbyDB extends BaseDataBase {
     /**
@@ -117,12 +103,22 @@ export class ReadingHobbiesDB extends BaseDataBase {
 
 export class InsertHobbiesDB extends BaseDataBase {
     public async insertHobbiesDB(hobby: any[]) {
-
         try {
             return await this.connection("HOBBY")
                 .insert(hobby)
         }
-
+        catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+}
+export class FindHobbybyNameDB extends BaseDataBase {
+    public async findHobbybyNameDB (nome:string) {
+        try {
+            return await this.connection("HOBBY")
+                            .where("nome","=",nome)
+                            .select("id")        
+        }
         catch (error: any) {
             throw new Error(error.sqlMessage || error.message)
         }
@@ -131,8 +127,9 @@ export class InsertHobbiesDB extends BaseDataBase {
 
 
 
+
 export class InserirEstudantesHobbyDB extends BaseDataBase {
-    public async InserirEstudantesHobbyDB(estudanteHobby: string[]) {
+    public async InserirEstudantesHobbyDB(estudanteHobby: any ) {
         try {
             return await this.connection("ESTUDANTE_HOBBY")
                 .insert(estudanteHobby)
@@ -140,7 +137,6 @@ export class InserirEstudantesHobbyDB extends BaseDataBase {
             throw new Error(error.sqlMessage || error.message)
         }
     }
-
 }
 
 

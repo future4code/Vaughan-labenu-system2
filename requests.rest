@@ -6,11 +6,11 @@ Content-Type: application/json
 
   { 
 
-  "nome": "marcelo costa ",       
-   "email": "Marceoldfs@gmail.com",
-    "dataNasc":"01/01/1920",
+  "nome": "Rafa",       
+   "email": "rafa@gmail.com",
+    "dataNasc":"01/01/1990",
      "turmaId" :"0.4786352600742101",
-    "hobbys": ["ler" , "patins" , "olhar"]
+    "hobbys": ["ler" , "comprar" ]
 
    }
 
