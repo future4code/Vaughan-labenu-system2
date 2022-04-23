@@ -10,7 +10,7 @@ Content-Type: application/json
    "email": "Dintrereto@gmail.com",
     "dataNasc":"01/01/1990",
      "turmaId" :"0.302643476637366",
-    "hobbys": ["ler" , "patins" , "olhar" , "mar"]
+    "hobbys": ["ler" , "patins" , "olhar" , "teste0324023"]
 
    }
 
@@ -79,5 +79,5 @@ Content-Type: application/json
   "nome": "profe",       
    "email": "profe@gmail.com",
     "data_nasc":"1990-01-01",
-     "turma_id" :"0.302643476637366"
+     "turma_id" :"0.31302916523901625"
    }
