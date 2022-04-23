@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import { Estudante, EstudanteSemHobby } from "../classes";
 
-import { CreatingStundetDB, InserirHobbiesDB, ReadingHobbiesDB } from "../data";
-
+import { CreatingStundetDB, InsertHobbiesDB, ReadingHobbiesDB } from "../data";
 
 
 // "nome", "email", "dataNasc", "turmaID" ,"hobbys" = []
@@ -21,7 +20,7 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
         { nome:string, email:string, dataNasc : string, turmaId:string ,hobbys :string[] } = req.body
         const id = Math.random().toString();
         const data_nasc  = dataNasc.split("/").reverse().join("-") 
-=======
+
 
 
 
@@ -57,12 +56,12 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
             new EstudanteSemHobby(id, nome, email, data_nasc, turma_id )
             
             console.log("Creating students", estudanteSemHobby)
-            const InserirHobbieDB = new InserirHobbiesDB()
-            InserirHobbieDB.InserirHobbiesDB(hobbyNo)
+            const InserirHobbieDB = new InsertHobbiesDB()
+            InserirHobbieDB.insertHobbiesDB(hobbyNo)
 
         const CreatingStudentsDB = new CreatingStundetDB()
         CreatingStudentsDB.creatingStundentMeth(estudanteSemHobby)
-        res.status(201).send(estudanteSemHobby)
+        res.status(201).end()
     } catch (error: any) {
         res.status(400).send(error.sqlMessage | error.message)     
        
