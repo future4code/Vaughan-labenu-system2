@@ -23,7 +23,7 @@ export class CreatingStundetDB extends BaseDataBase {
         // que na tabela Estudante não existe Hobby        
         //   (estudante:Estudante) { 
         try {
-            await this.connection("ESTUDANTE")
+                 await this.connection("ESTUDANTE")
                 // console.log(estudante)
                 .insert(estudante)
         } catch (error: any) {
@@ -31,6 +31,21 @@ export class CreatingStundetDB extends BaseDataBase {
         }
     }
 }
+
+
+export class SearchingStudentByNameDB extends BaseDataBase { 
+    
+    public async searchingStudentByName(nome: string ): Promise<any>{ 
+        try { 
+            return this.connection("ESTUDANTE")
+                       .where("nome" , "like", `%${nome}%`)
+            
+        } catch (error:any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+}
+
 
 
 
@@ -124,8 +139,6 @@ export class FindHobbybyNameDB extends BaseDataBase {
         }
     }
 }
-
-
 
 
 export class InserirEstudantesHobbyDB extends BaseDataBase {
