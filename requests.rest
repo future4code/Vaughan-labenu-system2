@@ -6,11 +6,11 @@ Content-Type: application/json
 
   { 
 
-  "nome": "Ditertertreno da Silva  Sauro",       
-   "email": "Dintrereto@gmail.com",
-    "dataNasc":"01/01/1990",
-     "turmaId" :"0.302643476637366",
-    "hobbys": ["ler" , "patins" , "olhar" , "teste0324023"]
+  "nome": "marcelo costa ",       
+   "email": "Marceoldfs@gmail.com",
+    "dataNasc":"01/01/1920",
+     "turmaId" :"0.4786352600742101",
+    "hobbys": ["ler" , "patins" , "olhar"]
 
    }
 
