@@ -1,6 +1,17 @@
-import { Estudante, EstudanteSemHobby, TurmaClasse } from "./classes";
+import { Docente,  Estudante, EstudanteSemHobby, TurmaClasse } from "./classes";
 import { BaseDataBase } from "./connections";
 import { MODULO } from "./types";
+
+export class InserirDocente extends BaseDataBase {
+    public async InserirDocenteDB(docente: object) {
+        try {
+            return await this.connection("DOCENTE").insert(docente)
+        } catch (error: any) {
+            throw new Error( error.sqlMessage || error.message)
+        }
+    }
+}
+
 
 export class CreatingStundetDB  extends BaseDataBase { 
      // Lembrar de usar algum tipo de intercao para tabela Estudante_hobby  olhar a .md de hobbies
@@ -97,12 +108,36 @@ export class CreatingEstudanteHobbyDB extends BaseDataBase {
 export class ReadingHobbiesDB extends BaseDataBase {
     public async readingHobbiesMeth(){
         try {
-          //   return await this.connection(“HOBBY”).select()
             return await this.connection("HOBBY").select()
         } catch (error:any) {
            throw new Error( error.sqlMessage || error.message)
         }
     }
+}
+
+export class InsertHobbiesDB extends BaseDataBase {
+    public async insertHobbiesDB(hobby:any[]){
+        try {
+            return await this.connection("HOBBY")
+            .insert(hobby)
+        } catch (error:any) {
+           throw new Error( error.sqlMessage || error.message)
+        }
+    }
+}
+
+
+
+export class InserirEstudantesHobbyDB extends BaseDataBase { 
+    public async InserirEstudantesHobbyDB(estudanteHobby:string[]){ 
+        try{ 
+            return await this.connection("ESTUDANTE_HOBBY")
+            .insert(estudanteHobby)
+        } catch (error:any) {
+            throw new Error( error.sqlMessage || error.message)
+         }
+    }
+
 }
 
 
