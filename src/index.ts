@@ -4,6 +4,7 @@ import { creatingEstHobby } from "./endpoints/creatingEstHobby"
 import { creatingStudents } from "./endpoints/creatingStudents"
 import { creatingTeacher } from "./endpoints/creatingTeacher"
 import { creatingTurma} from "./endpoints/creatingTurma"
+import { getSudentAge } from "./endpoints/getStudentAgebyId"
 import { searchingStudentByName } from "./endpoints/searchingStudentByName"
 import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searchingTurmas"
 import { SearchingDocenteByName } from "./endpoints/searchinTeacher"
@@ -28,6 +29,8 @@ app.put("/turmas" ,  changeModule)
 app.get("/docente", SearchingDocenteByName)
 
 app.post("/docente", creatingTeacher)
+
+app.get("/id/estudante", getSudentAge)
 
 // Nao devia existir somente para teste
 app.post("/estudanteHobby", creatingEstHobby)

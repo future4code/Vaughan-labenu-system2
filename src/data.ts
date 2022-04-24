@@ -165,4 +165,17 @@ export class InserirEstudantesHobbyDB extends BaseDataBase {
     }
 }
 
-
+export class getSudentAgeById extends BaseDataBase {
+    public async getSudentAgeWithId(id: any ) {
+        try {
+            const result =  await this.connection.raw(`
+            SELECT
+            TIMESTAMPDIFF(YEAR, data_nasc, CURDATE()) as age 
+            FROM ESTUDANTE WHERE ESTUDANTE.id = ${id};
+            `)
+            return result
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+}
