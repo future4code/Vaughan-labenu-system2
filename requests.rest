@@ -98,9 +98,16 @@ Content-Type: application/json
 ### // Pegando Docente por nome
 GET http://localhost:3003/docente HTTP/1.1
 Content-Type: application/json
+
+
+
+### // Pegando Docente por nome
+GET http://localhost:3003/docente/nome HTTP/1.1
+Content-Type: application/json
+
 # status 200 
 { 
-  "nome": "pro"
+  "nome": "1te"
 }
 
 
