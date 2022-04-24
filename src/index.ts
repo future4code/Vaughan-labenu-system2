@@ -1,6 +1,6 @@
 import app from "./app"
 import { GetAllDocentesDB } from "./data"
-import { changingClassUsuario } from "./endpoints/changingClassTeachers"
+import { changingClassUsuario } from "./endpoints/changingClassUsers"
 import { changeModule } from "./endpoints/changingModule"
 import { creatingEstHobby } from "./endpoints/creatingEstHobby"
 import { creatingStudents } from "./endpoints/creatingStudents"

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { TurmaClasse } from "../classes";
-import { ChaggingStudentClassDB } from "../data";
+import { ChaggingUsersClassDB } from "../data";
 import { getALLClassesNoExpress } from "./getAllClasses";
 
 
@@ -27,7 +27,7 @@ export const changingClassUsuario = async (req: Request, res: Response): Promise
             const turma_id = idTurma[0];
 
             if (id) {
-                const chaggingStudentClass = new ChaggingStudentClassDB()
+                const chaggingStudentClass = new ChaggingUsersClassDB()
                 await chaggingStudentClass.chaggingClass(id, turma_id ,usuario )
                 console.log(id,turma_id, usuario )
                 // console.log(id , turma_id)
