@@ -100,26 +100,17 @@ Content-Type: application/json
 ### // Pegando Docente por nome
 GET http://localhost:3003/docente HTTP/1.1
 Content-Type: application/json
+
+
+
+### // Pegando Docente por nome
+GET http://localhost:3003/docente/nome HTTP/1.1
+Content-Type: application/json
+
 # status 200 
 { 
-  "nome": "pro"
+  "nome": "1te"
 }
-
-
-###
-
-# Erro 400 nenhum nome encontrado  
-#{ 
-#   "nome": "g"
-# }
-
-
-
-  "nome": "profe",       
-   "email": "profe@gmail.com",
-    "data_nasc":"1990-01-01",
-     "turma_id" :"0.31302916523901625"
-   }
 
 
 ###
@@ -132,3 +123,33 @@ Content-Type: application/json
   "studentId" : "0.8481244983466596"
 }
 
+###
+GET http://localhost:3003/turmas HTTP/1.1
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3003/estudante HTTP/1.1
+Content-Type: application/json
+
+{ 
+  "usuario" : "ESTUDANTE",
+  "nomeTurma": "Melhor",
+  "idUsuario":  "0.34808285998098465"
+}
+
+# // para fazer por nome os dois tinha que fazer acesso do banco 
+# // para o nome estudante e procurar o id tb procurar  
+# // sendo que o nome pode ser repitido achei melhor deixar assim pelo id.
+# // mas fiz isso para a turma. 
+#  # id turma  "0.31302916523901625" 
+
+###
+PUT http://localhost:3003/docente HTTP/1.1
+Content-Type: application/json
+
+{  
+  "usuario" : "DOCENTE",
+  "nomeTurma": "Futuro",
+  "idUsuario":  "0.1075910002203142"
+}

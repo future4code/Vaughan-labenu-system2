@@ -3,8 +3,8 @@ import { ESPECIALIDADES, MODULO } from "./types";
 export class TurmaClasse {
     private modulo = MODULO.modulo0;
     constructor(
-         private id: string, 
-         private nome: string, 
+         public id: string, 
+         public nome: string, 
     ) {}
         setModulo(novoModulo: MODULO){ 
             this.modulo = novoModulo;
