@@ -24,6 +24,17 @@ export class SearchingDocenteByNameDB extends BaseDataBase {
         }
     }
 }
+export class GetAllDocentesDB extends BaseDataBase { 
+    public async getAllDocentes():Promise<Usuario[]>{ 
+        try {
+            return await this.connection("DOCENTE")
+                      
+        } catch (error:any) {
+        
+        throw new Error(error.sqlMessage ||error.message )    
+        }
+    }
+}
 
 
 export class CreatingStundetDB extends BaseDataBase {
