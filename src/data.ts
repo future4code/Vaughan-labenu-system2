@@ -37,6 +37,10 @@ export class GetAllDocentesDB extends BaseDataBase {
 }
 
 
+
+
+///*****************************Estudante ************************* */
+
 export class CreatingStundetDB extends BaseDataBase {
     // Lembrar de usar algum tipo de intercao para tabela Estudante_hobby  olhar a .md de hobbies
     public async creatingStundentMeth
@@ -71,7 +75,22 @@ export class SearchingStudentByNameDB extends BaseDataBase {
 }
 
 
+ export class ChaggingStudentClassDB extends BaseDataBase { 
+    public async chaggingClass (id: string , turma_id:string , usuario:string ) { 
+        try {
+            console.log(id , turma_id)
+       await  this.connection(`${usuario}`)
+            .where("id",id)
+            .update("turma_id", turma_id)
+            
+        } catch (error: any) {
 
+            throw new Error(error.sqlMessage || error.message);
+        }
+    }
+ }
+
+// ***** /****Turma ************************ */
 
 export class CreatingTurma extends BaseDataBase {
 
@@ -115,6 +134,20 @@ export class ChangeClassModuloDb extends BaseDataBase {
         }
     }
 }
+export class GetAllTurmasDB extends BaseDataBase {
+    public async getAllTurmas() {
+        try {
+            return await this.connection("TURMA")
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+}
+
+
+// ******************HObby *********************
+
+
 // criando 1 ESTUDANTE_HOBBY no banco de dados 
 export class CreatingEstudanteHobbyDB extends BaseDataBase {
     /**
@@ -190,3 +223,4 @@ export class getSudentAgeById extends BaseDataBase {
         }
     }
 }
+
