@@ -75,7 +75,7 @@ export class SearchingStudentByNameDB extends BaseDataBase {
 }
 
 
- export class ChaggingStudentClassDB extends BaseDataBase { 
+ export class ChaggingUsersClassDB extends BaseDataBase { 
     public async chaggingClass (id: string , turma_id:string , usuario:string ) { 
         try {
             console.log(id , turma_id)
