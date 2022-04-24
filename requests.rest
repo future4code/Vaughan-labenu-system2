@@ -88,10 +88,24 @@ Content-Type: application/json
 POST http://localhost:3003/docente HTTP/1.1
 Content-Type: application/json
 
-  { 
+{ 
+"nome": "1testeProfessor",       
+"email": "teste2rPro@gmail.com",
+"data_nasc":"2002-11-11",
+"turma_id" :"0.31302916523901625"
+}
 
-  "nome": "profe",       
-   "email": "profe@gmail.com",
-    "data_nasc":"1990-01-01",
-     "turma_id" :"0.31302916523901625"
-   }
+### // Pegando Docente por nome
+GET http://localhost:3003/docente HTTP/1.1
+Content-Type: application/json
+# status 200 
+{ 
+  "nome": "pro"
+}
+
+
+
+# Erro 400 nenhum nome encontrado  
+#{ 
+#   "nome": "g"
+# }

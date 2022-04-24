@@ -1,4 +1,4 @@
-import { Docente, Estudante, EstudanteSemHobby, TurmaClasse } from "./classes";
+import { Docente, Estudante, EstudanteSemHobby, TurmaClasse, Usuario } from "./classes";
 import { BaseDataBase } from "./connections";
 import { MODULO } from "./types";
 
@@ -8,6 +8,19 @@ export class InserirDocente extends BaseDataBase {
             return await this.connection("DOCENTE").insert(docente)
         } catch (error: any) {
             throw new Error(error.sqlMessage || error.message)
+        }
+    }
+}
+
+
+export class SearchingDocenteByNameDB extends BaseDataBase { 
+    public async searchingByName(nome: string):Promise<Usuario[]>{ 
+        try {
+            return await this.connection("DOCENTE")
+                      .where("nome", "like", `%${nome}%` )
+        } catch (error:any) {
+        
+        throw new Error(error.sqlMessage ||error.message )    
         }
     }
 }

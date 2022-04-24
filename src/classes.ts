@@ -22,16 +22,14 @@ export class TurmaClasse {
         
 }
 
-
-
-abstract class Usuario {    
+export abstract class Usuario {    
 
     constructor(
-        private id: string,
-        private nome: string,
-        private email: string,
-        private data_nasc: string,
-        private turma_id: string        
+        public id: string,
+        public nome: string,
+        public email: string,
+        public data_nasc: string,
+        public turma_id: string        
     ){}
     public setTurma_id(novaTurma:string){
         this.turma_id = novaTurma 
@@ -91,21 +89,6 @@ export class EstudanteSemHobby extends Usuario{
         return this.especialidades;
     }
 }
-
-export const Docente1 = new Docente("001", 
-"Ronald", 
-"ronald@ronald.com" , 
-"10/02/1990",
-"turma01", 
-[ESPECIALIDADES.JS]
-      )
-    // console.log(Docente1)  
+ 
 
 
-export const Estudante1 = new Estudante( 
-"001", 
-"Jardel", 
-"ronald@ronald.com" , 
-"10/02/1990",
-"turma01", 
-["nadar", "futebol"   , "joga tennis"])

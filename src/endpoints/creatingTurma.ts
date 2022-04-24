@@ -8,7 +8,7 @@ import { MODULO } from "../types";
 
 //  Criando Turma 
 export const creatingTurma = async (req: Request, res: Response) => {
-      try {
+      try { 
             const nome: string = req.body.nome
             const id = Math.random().toString()
             const CreatingTurmaDB = new CreatingTurma()
