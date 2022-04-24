@@ -11,11 +11,13 @@ Content-Type: application/json
 
   { 
 
-  "nome": "Pessoa Nova",       
-   "email": "pn@gmail.com",
-    "dataNasc":"01/01/2000",
-     "turmaId" :"0.31835088047427673",
-    "hobbys": ["ler" , "comprar" ]
+
+  "nome": "Jose Rafa",       
+   "email": "jrafa@gmail.com",
+    "dataNasc":"01/01/1990",
+     "turmaId" :"0.4786352600742101",
+    "hobbys": ["dirigir" , "comprar" ]
+
 
    }
 
@@ -88,7 +90,30 @@ Content-Type: application/json
 POST http://localhost:3003/docente HTTP/1.1
 Content-Type: application/json
 
-  { 
+{ 
+"nome": "1testeProfessor",       
+"email": "teste2rPro@gmail.com",
+"data_nasc":"2002-11-11",
+"turma_id" :"0.31302916523901625"
+}
+
+### // Pegando Docente por nome
+GET http://localhost:3003/docente HTTP/1.1
+Content-Type: application/json
+# status 200 
+{ 
+  "nome": "pro"
+}
+
+
+###
+
+# Erro 400 nenhum nome encontrado  
+#{ 
+#   "nome": "g"
+# }
+
+
 
   "nome": "profe",       
    "email": "profe@gmail.com",
@@ -106,3 +131,4 @@ Content-Type: application/json
 { 
   "studentId" : "0.8481244983466596"
 }
+

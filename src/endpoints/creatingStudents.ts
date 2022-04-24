@@ -29,7 +29,7 @@ export const creatingStudents = async (req: Request, res: Response): Promise<voi
         const mappedHobbies = hobbys.filter(item => {
             if (mappedTest.indexOf(item) === -1) { return true }
             else return false
-        }).map(item  => item.toLowerCase())
+        }).map(item  => item.toLowerCase().trim())
 
         // formatando o hobby em objeto -  adicionando id 
         // 

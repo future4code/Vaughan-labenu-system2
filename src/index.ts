@@ -7,6 +7,7 @@ import { creatingTurma} from "./endpoints/creatingTurma"
 import { getSudentAge } from "./endpoints/getStudentAgebyId"
 import { searchingStudentByName } from "./endpoints/searchingStudentByName"
 import { SearchingTurmaAtiva, SearchingTurmaInativas } from "./endpoints/searchingTurmas"
+import { SearchingDocenteByName } from "./endpoints/searchinTeacher"
 
 
 
@@ -24,6 +25,8 @@ app.get("/turmas/invalidas" ,  SearchingTurmaInativas)
 
 app.put("/turmas" ,  changeModule) 
  
+
+app.get("/docente", SearchingDocenteByName)
 
 app.post("/docente", creatingTeacher)
 
