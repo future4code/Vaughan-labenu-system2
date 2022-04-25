@@ -75,10 +75,22 @@ export class SearchingStudentByNameDB extends BaseDataBase {
 }
 
 
+export class GetAllEstudantesDB extends BaseDataBase { 
+    public async GetAllEstudantes():Promise<Usuario[]>{ 
+        try {
+            return await this.connection("ESTUDANTE")
+                      
+        } catch (error:any) {
+        
+        throw new Error(error.sqlMessage ||error.message )    
+        }
+    }
+}
+
+
  export class ChaggingUsersClassDB extends BaseDataBase { 
     public async chaggingClass (id: string , turma_id:string , usuario:string ) { 
         try {
-            console.log(id , turma_id)
        await  this.connection(`${usuario}`)
             .where("id",id)
             .update("turma_id", turma_id)
