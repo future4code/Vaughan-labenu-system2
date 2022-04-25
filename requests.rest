@@ -72,7 +72,7 @@ Content-Type: application/json
 
 { 
     "turmaId": "0.31302916523901625", 
-    "nome": "Moreira" ,
+    "nomeTurma": "Moreir" ,
     "modulo": "2"
 }
 
